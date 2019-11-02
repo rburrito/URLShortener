@@ -106,23 +106,7 @@ app.post('/api/shorturl/new',(req, res)=>{
 });
 
 
-/*
-let findRedirectURL=(shortenedURLCount, done)=>{
-  URL.findOne({shorturl: shortenedURLCount}, (err, shorturl)=>{
-    if (err){
-      return err;
-    } 
-    //console.log(shorturl);
-    done(shorturl);
-  });
-}; */
-
-
-
 app.get('/api/shorturl/:urlCount', (req,res)=>{
- // console.log(req.params.urlCount);
-/*findRedirectURL(req.params.urlCount, (shorturl)=>{
-res.redirect(shorturl.url); */
   URL.findOne({"shorturl": req.params.urlCount}, (err, shorturl)=>{
     if (err){
       console.log("error :"+ err);
